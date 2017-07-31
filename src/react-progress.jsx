@@ -14,8 +14,8 @@ class ReactProgress extends Component {
 
     this.state = {
       style: {
-        position: 'fixed',
-        top: props.top,
+        position: props.top ? 'fixed' : 'relative',
+        top: 0,
         width: 0,
         opacity: 0,
         height: props.height,
@@ -131,7 +131,7 @@ class ReactProgress extends Component {
 ReactProgress.defaultProps = {
   trigger: false,
   height: '2px',
-  top: '0',
+  top: false,
   color: '#77b6ff',
   starColor: 'white',
   waitTime: 10,
@@ -143,7 +143,7 @@ ReactProgress.defaultProps = {
 ReactProgress.propTypes = {
   trigger: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]).isRequired,
   height: PropTypes.string,
-  top: PropTypes.string,
+  top: PropTypes.bool,
   color: PropTypes.string,
   starColor: PropTypes.string,
   waitTime: PropTypes.number,

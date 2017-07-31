@@ -66,7 +66,7 @@ class Progress extends Component {
         </div>
 
         <div style={this.container}>
-          <ReactProgress trigger={this.state.isLoading} top="200px" starColor="red"/>
+          <ReactProgress trigger={this.state.isLoading} starColor="red"/>
           <button onClick={() => this.handleLoading(true)}>开始</button>
           <button onClick={() => this.handleLoading(false)}>结束</button>
         </div>
