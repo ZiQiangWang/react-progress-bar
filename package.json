@@ -1,11 +1,11 @@
 {
   "name": "react-prog-bar",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple github style progress bar for React",
   "main": "./lib/react-progress.js",
   "scripts": {
     "start": "webpack-dev-server --open",
-    "build": "rimraf lib && babel src --out-dir lib --ignore index.jsx,Demo.jsx",
+    "build": "npm run lint && rimraf lib && babel src --out-dir lib --ignore index.jsx,Demo.jsx",
     "lint": "eslint --ext .jsx src/ --fix"
   },
   "repository": {
