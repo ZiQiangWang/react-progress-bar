@@ -20,7 +20,7 @@ class ReactProgress extends Component {
         height: props.height,
         background: props.color,
         boxShadow: `0 0 10px ${props.color}`,
-        transition: 'width 0s, opacity 0s',
+        transition: 'none',
       },
       starStyle: {
         position: 'absolute',
@@ -40,21 +40,29 @@ class ReactProgress extends Component {
     const { style } = this.state;
     const nextTrigger = nextProps.trigger;
 
-    if (trigger === nextTrigger) {
-      return;
-    }
-
     let nextStyle;
-
     if (typeof trigger === 'boolean') {
       const { waitTime, finishTime } = this.props;
       if (nextTrigger) {
+        const initStyle = {
+          ...style,
+          width: 0,
+          opacity: 0,
+          transition: 'none',
+        };
+
         nextStyle = {
           ...style,
           opacity: 1,
           width: '80%',
           transition: `width ${waitTime}s ease`,
         };
+
+        this.setState({ ...this.state, style: initStyle }, () => {
+          setTimeout(() => {
+            this.setState({ ...this.state, style: nextStyle });
+          }, 100);
+        });
       } else {
         nextStyle = {
           ...style,
@@ -62,6 +70,7 @@ class ReactProgress extends Component {
           width: '100%',
           transition: `width ${finishTime}s ease, opacity ${disappearTime}s ease ${finishTime}s`,
         };
+        this.setState({ ...this.state, style: nextStyle });
       }
     } else if (typeof trigger === 'number') {
       const percent = parseInt(nextTrigger, 10);
@@ -83,12 +92,12 @@ class ReactProgress extends Component {
       } else {
         throw new Error('Trigger as percent should not be greater than 100 or less than 0');
       }
-    }
 
-    this.setState({
-      ...this.state,
-      style: nextStyle,
-    });
+      this.setState({
+        ...this.state,
+        style: nextStyle,
+      });
+    }
   }
 
   handleTransitionEnd = (e) => {
@@ -104,7 +113,7 @@ class ReactProgress extends Component {
         ...style,
         width: 0,
         opacity: 0,
-        transition: 'width 0s, opacity 0s',
+        transition: 'none',
       };
 
       this.setState({
