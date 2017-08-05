@@ -57,14 +57,14 @@ class Progress extends Component {
     return (
       <div>
         <div style={this.container}>
-          <ReactProgress trigger={this.state.percent} />
+          <ReactProgress trigger={this.state.percent} top={false}/>
           <button onClick={() => this.handlePercent(false)}>-</button>
-          <input value={this.state.percent} onChange={this.handleChange} />
+          <input value={this.state.percent} onChange={this.handleChange}/>
           <button onClick={() => this.handlePercent(true)}>+</button>
         </div>
 
         <div style={this.container}>
-          <ReactProgress trigger={this.state.isLoading} starColor="red" />
+          <ReactProgress trigger={this.state.isLoading} starColor="red" top={false} />
           <button onClick={() => this.handleLoading(true)}>开始</button>
           <button onClick={() => this.handleLoading(false)}>结束</button>
         </div>

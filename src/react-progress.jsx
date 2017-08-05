@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 class ReactProgress extends Component {
   constructor(props) {
     super(props);
-
+    console.log(props.top)
     this.state = {
       style: {
         position: props.top ? 'fixed' : 'relative',
@@ -135,7 +135,7 @@ class ReactProgress extends Component {
 ReactProgress.defaultProps = {
   trigger: false,
   height: '2px',
-  top: false,
+  top: true,
   color: '#77b6ff',
   starColor: 'white',
   waitTime: 10,
