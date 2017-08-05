@@ -1,6 +1,6 @@
 {
   "name": "react-prog-bar",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Simple github style progress bar for React",
   "main": "./lib/react-progress.js",
   "scripts": {

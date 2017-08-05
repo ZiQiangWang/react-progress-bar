@@ -10,7 +10,6 @@ import PropTypes from 'prop-types';
 class ReactProgress extends Component {
   constructor(props) {
     super(props);
-    console.log(props.top)
     this.state = {
       style: {
         position: props.top ? 'fixed' : 'relative',

@@ -57,9 +57,9 @@ class Progress extends Component {
     return (
       <div>
         <div style={this.container}>
-          <ReactProgress trigger={this.state.percent} top={false}/>
+          <ReactProgress trigger={this.state.percent} top={false} />
           <button onClick={() => this.handlePercent(false)}>-</button>
-          <input value={this.state.percent} onChange={this.handleChange}/>
+          <input value={this.state.percent} onChange={this.handleChange} />
           <button onClick={() => this.handlePercent(true)}>+</button>
         </div>
 
